@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './models/item.model';
 
@@ -7,14 +7,17 @@ export class ItemsController {
   constructor(private itemsService: ItemsService) {}
 
   @Get()
-  findAllItems()  {
+  async getItems() {
+    return await this.itemsService.getItems();
   }
 
   @Post()
-  insertItem(item: Item) {
-    this.itemsService.insertItem(item)
+  async insertItem(@Body() item: Item) {
+    return await this.itemsService.insertItem(item);
   }
 
-  @Put() 
-  updateItem(){}
+  @Put()
+  async updateItem(@Body() item: Item) {
+    return await this.itemsService.updateItem(item);
+  }
 }

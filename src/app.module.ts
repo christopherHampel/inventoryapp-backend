@@ -8,8 +8,8 @@ import { MongooseModule } from '@nestjs/mongoose';
   imports: [
     ItemsModule,
     MongooseModule.forRoot(
-      'mongodb+srv://inventoryManager:6QzS5iUm3sCqNOAu@cluster0.lwcrksm.mongodb.net/?appName=Cluster0',
-    ),
+      'mongodb+srv://inventoryManager:6QzS5iUm3sCqNOAu@cluster0.lwcrksm.mongodb.net/inventoryapp?appName=Cluster0',
+    )
   ],
   controllers: [AppController],
   providers: [AppService],
